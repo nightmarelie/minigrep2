@@ -22,7 +22,7 @@ struct Config {
 
 impl Config {
     fn new(args: &[String]) -> Config {
-        if (args.len() < 3) {
+        if args.len() < 3 {
             panic!("not enough arguments!");
         }
 
