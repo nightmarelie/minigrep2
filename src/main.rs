@@ -12,10 +12,10 @@ fn main() {
     println!("Searching for {}", config.query);
     println!("In file {}", config.file_path);
 
-    run(config).unwrap_or_else(|err| {
-        println!("Problem with running the program {err}");
+    if let Err(err) = run(config) {
+        println!("Application error: {err}");
         process::exit(1);
-    });
+    }
 
     // dbg!(&args);
 }
