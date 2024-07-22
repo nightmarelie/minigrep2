@@ -90,7 +90,10 @@ safe, fast, productive.
 Pick three.
 Trust me!";
 
-        assert_eq!(vec!["safe, fast, productive."], search_case_sensitive(query, contents));
+        assert_eq!(
+            vec!["safe, fast, productive."],
+            search_case_sensitive(query, contents)
+        );
     }
 
     #[test]
@@ -102,6 +105,9 @@ safe, fast, productive.
 Pick three.
 Trust me!";
 
-        assert_eq!(vec!["Rust:", "Trust me!"], search_case_insensitive(query, contents));
+        assert_eq!(
+            vec!["Rust:", "Trust me!"],
+            search_case_insensitive(query, contents)
+        );
     }
 }
