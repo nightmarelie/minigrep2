@@ -4,6 +4,7 @@ use std::fs;
 pub struct Config {
     pub query: String,
     pub file_path: String,
+    pub ignore_case: bool,
 }
 
 impl Config {
@@ -54,18 +55,6 @@ pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a st
     results
 }
 
-pub fn search_case_sensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
-    let mut results = Vec::new();
-
-    for line in contents.lines() {
-        if line.contains(query) {
-            results.push(line);
-        }
-    }
-
-    results
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -92,7 +81,7 @@ Trust me!";
 
         assert_eq!(
             vec!["safe, fast, productive."],
-            search_case_sensitive(query, contents)
+            search(query, contents)
         );
     }
 
